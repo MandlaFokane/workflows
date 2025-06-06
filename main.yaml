@@ -1,1 +1,19 @@
 #this file will contain workflow steps to run on triggered event
+name: Simple Workflow
+
+# Trigger this workflow on push events to the main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest  # Use a Linux runner provided by GitHub
+
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4  # This step clones your repo on the runner
+
+      - name: Say Hello
+        run: echo "Hello, GitHub Actions! 🎉"
